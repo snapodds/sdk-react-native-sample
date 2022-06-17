@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "snapodds-sample",
+    "slug": "snapodds-sample",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "infoPlist": {
+        "NSCameraUsageDescription": "The camera is used to snap your TV."
+      }
+    }
+  },
+  "name": "snapodds-sample"
+}

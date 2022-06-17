@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "sdk-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/snapodds/sdk-ios.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "1071424f16be63bae10e0d7b615a35e9f70b8d73"
+      }
+    }
+  ],
+  "version" : 2
+}
