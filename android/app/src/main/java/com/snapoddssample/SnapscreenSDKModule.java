@@ -37,6 +37,8 @@ public class SnapscreenSDKModule extends ReactContextBaseJavaModule implements S
         context.addLifecycleEventListener(this);
     }
 
+    private String snapTitle = "";
+
     @NonNull
     @Override
     public String getName() {
@@ -83,6 +85,9 @@ public class SnapscreenSDKModule extends ReactContextBaseJavaModule implements S
         if (parameters.hasKey("autosnapIntervalInSeconds")) {
             snapConfiguration.setAutoSnapIntervalInSeconds(parameters.getDouble("autosnapIntervalInSeconds"));
         }
+        if (parameters.hasKey("title")) {
+            snapTitle = parameters.getString("title");
+        }
 
         Intent snapIntent = SnapActivity.Companion.intentForSportsMedia(getCurrentActivity(), snapConfiguration, false, this);
         getCurrentActivity().startActivity(snapIntent);
@@ -101,6 +106,9 @@ public class SnapscreenSDKModule extends ReactContextBaseJavaModule implements S
         }
         if (parameters.hasKey("autosnapIntervalInSeconds")) {
             snapConfiguration.setAutoSnapIntervalInSeconds(parameters.getDouble("autosnapIntervalInSeconds"));
+        }
+        if (parameters.hasKey("title")) {
+            snapTitle = parameters.getString("title");
         }
 
         Intent snapIntent = SnapActivity.Companion.intentForSportsOperator(getCurrentActivity(), snapConfiguration, this, this);
@@ -207,7 +215,7 @@ public class SnapscreenSDKModule extends ReactContextBaseJavaModule implements S
 
     @Override
     public void onSnapActivityCreate(@NonNull SnapActivity snapActivity) {
-
+        snapActivity.setTitle(snapTitle);
     }
 
     @Override

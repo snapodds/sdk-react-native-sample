@@ -69,6 +69,10 @@ class SnapscreenSDKModule: NSObject {
       if let customNavigationForegroundColor = UIColor.customColorWithName("navigationForeground", fromParameters: parameters) {
         navigationForegroundColor = customNavigationForegroundColor
       }
+      if let title = parameters?.object(forKey: "title") as? String {
+        viewController.navigationItem?.title = title
+        viewController.title = title
+      }
       
       customNavigationController.navigationBar.isTranslucent = false
       customNavigationController.navigationBar.barStyle = .default
@@ -129,6 +133,10 @@ class SnapscreenSDKModule: NSObject {
       }
       if let customNavigationForegroundColor = UIColor.customColorWithName("navigationForeground", fromParameters: parameters) {
         navigationForegroundColor = customNavigationForegroundColor
+      }
+      if let title = parameters?.object(forKey: "title") as? String {
+        viewController.navigationItem?.title = title
+        viewController.title = title
       }
       
       customNavigationController.navigationBar.isTranslucent = false
